@@ -1,0 +1,30 @@
+package algorithm.searching;
+
+import java.util.Scanner;
+
+public class BinarySearch {
+    public static void main(String[] args){
+       int arr[] = {1,5,6,10,11,15,37,50};
+       Scanner sc = new Scanner(System.in);
+       int element = sc.nextInt();
+       System.out.println(binarySearch(arr, element));
+    }
+
+    public static int binarySearch(int[] arr, int item){
+        int n = arr.length;
+        int low = 0, high = n-1;
+
+        while(low <= high){
+            int mid = (low+high)/2;
+            if(arr[mid] < item) {
+                low = mid+1;
+            }else if(arr[mid] > item){
+                high = mid-1;
+            }else{
+                return mid;
+            }
+        }
+        return -1;
+    }
+
+}
